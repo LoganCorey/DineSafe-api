@@ -33,9 +33,9 @@ public class EstablishmentController {
     List<Establishment> all(){
         return (List<Establishment>) repository.findAll();
     }*/
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/search")
     @ResponseBody
-    public List<Establishment> findAllBySpecification(@RequestParam(value = "search") String search) {
+    public List<Establishment> findAllBySpecification(@RequestParam(value = "query") String search) {
         EstablishmentSpecificationsBuilder builder = new EstablishmentSpecificationsBuilder();
         String operationSetExper = Joiner.on("|")
                 .join(SearchOperation.SIMPLE_OPERATION_SET);
