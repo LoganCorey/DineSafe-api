@@ -2,7 +2,8 @@ package com.toronto.dinesafe;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -15,9 +16,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     private static final String SWAGGER_API_VERSION = "1.0";
-    private static final String LICENSE_TEXT = "License";
-    private static final String title = "DineSafe REST API";
-    private static final String description = "RESTful API for DineSafe Establishments";
+    private static final String LICENSE_TEXT = "GPL-3.0 License";
+    private static final String title = "DineSafe API";
+    private static final String description = "API for DineSafe Establishments";
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
