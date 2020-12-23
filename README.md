@@ -8,6 +8,25 @@ The current way to access this data is via navigating to http://opendata.toronto
 
 
 
+## How To Use
+
+###### BASE API Route:
+
+ https://api-dinesafe.herokuapp.com/establishment/
+
+###### Search By Establishment Id
+
+ https://api-dinesafe.herokuapp.com/establishment/{id}
+
+example:  https://api-dinesafe.herokuapp.com/establishment/10
+
+###### Search
+
+ https://api-dinesafe.herokuapp.com/establishment/search?query=
+
+To learn more about searching please view  the web page available here https://logancorey.github.io/DineSafe-api/
+
+
 
 ## Getting Started
 
@@ -25,9 +44,22 @@ The current way to access this data is via navigating to http://opendata.toronto
   - https://www.sqlite.org/index.html
 
 ### Installation
-Run the command `mvn install` and rake diensafe:fetch && rake dinesafe:extract && rake dinesafe:create
 
+1. Clone  the repo
+2. run the command `mvn install`
+3. run the command `rake diensafe:fetch && rake dinesafe:extract && rake dinesafe:create`
+4. run the command `spring-boot:run`
+5. Your API will now be available at http://localhost:8080/establishment 
 
 ### Testing
 
-In order to test the api run the command `mvn test` 
+The Dinesafe API has a few simple tests already made for it testing basic features such as searching and getting establishments.  To run these tests run the command `mvn test` 
+
+
+
+## Future Considerations
+
+Being a bit more forward thinking it would be a good idea to implement the following
+
+- Expanding on the searching features with more operators allowing for more complex queries
+- Implement some kind of API throttling if there are a lot of calls
