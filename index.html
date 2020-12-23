@@ -25,9 +25,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500|Source+Code+Pro:300" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" media="all">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -54,9 +54,6 @@
                 <li class="scroll-to-link" data-target="search-establishments">
                     <a>Search Establishments</a>
                 </li>
-                <li class="scroll-to-link" data-target="types-of-establishments">
-                    <a>Types of Establishments</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -67,7 +64,7 @@
             <div class="overflow-hidden content-section" id="content-get-started">
                 <h1 id="get-started">Get started</h1>
                 <p>
-                    The DineSafe API returns JSON metadata about
+                    The DineSafe API is based off of simple REST principles which returns JSON metadata about
                     establishments in Toronto regarding
                     how establishments preform in the DineSafe food safety program.
                 </p>
@@ -101,9 +98,9 @@
                         <tr>
                             <td>id</td>
                             <td>Integer</td>
-                            <td>Id of row according to the Dinesafe xml file</td>
+                            <td>Id of establishment according to the Dinesafe xml file</td>
                         </tr>
-
+                     
                     </tbody>
                 </table>
             </div>
@@ -112,7 +109,7 @@
                 <p>
                     To get information on a specific establishment id you need to make a GET call to the following
                     url:<br>
-                    <code class="higlighted">https://api-dinesafe.herokuapp.com/establishment/search?query=</code>
+                    <code class="higlighted">https://api-dinesafe.herokuapp.com/establishment/search?</code>
                 </p>
                 <br>
                 <h4>QUERY PARAMETERS</h4>
@@ -128,180 +125,12 @@
                         <tr>
                             <td>id</td>
                             <td>Integer</td>
-                            <td>Id of row in DineSafe.xml</td>
-                        </tr>
-                        <tr>
-                            <td>establishmentId</td>
-                            <td>Integer</td>
                             <td>Id of establishment according to the Dinesafe xml file</td>
                         </tr>
-                        <tr>
-                            <td>inspectionId</td>
-                            <td>Integer</td>
-                            <td>Id of inspection according to Dinesafe xml file</td>
-                        </tr>
-                        <tr>
-                            <td>establishmentName</td>
-                            <td>String</td>
-                            <td>Name of the establishment in capitals</td>
-                        </tr>
-                        <tr>
-                            <td>establishmentType</td>
-                            <td>String</td>
-                            <td>Type of establishment </td>
-                        </tr>
-                        <tr>
-                            <td>establishmenAddress</td>
-                            <td>String</td>
-                            <td>Location of establishment in capitals (example: 870 MARKHAM RD)</td>
-                        </tr>
-                        <tr>
-                            <td>latitude</td>
-                            <td>Integer</td>
-                            <td>Latitude of where the establishment is located </td>
-                        </tr>
-                        <tr>
-                            <td>longitude</td>
-                            <td>Integer</td>
-                            <td>Longitude of where the establishment is located</td>
-                        </tr>
-                        <tr>
-                            <td>establishmentStatus</td>
-                            <td>Integer</td>
-                            <td>Status of the inspection (Pass, Conditional Pass, Closed)</td>
-                        </tr>
-                        <tr>
-                            <td>minimumInspectionsPerYear</td>
-                            <td>Integer</td>
-                            <td>Minimum number of inspections made to the establishment per year</td>
-                        </tr>
-                        <tr>
-                            <td>infractionDetails</td>
-                            <td>String</td>
-                            <td>If there is an infraction it will contain the details for it</td>
-                        </tr>
-                        <tr>
-                            <td>inspectionDate</td>
-                            <td>Integer</td>
-                            <td>Year the inspection took place</td>
-                        </tr>
-                        <tr>
-                            <td>severity</td>
-                            <td>Integer</td>
-                            <td>How severe the infraction was if there was one (NA - Not Applicable, M - Minor, S - Significant, C - Crucial, {sometimes there is no value here ie ''})</td>
-                        </tr>
-                        <tr>
-                            <td>action</td>
-                            <td>Integer</td>
-                            <td>If there was an infraction what action does the establishment need to take (Notice to comply, Corrected During Inspection, '', Ticket, Closure Order, Summons, Not in Compliance, Summons and Health Hazard Order, Education Provided, Prohibition Order Requested)</td>
-                        </tr>
-                        <tr>
-                            <td>courtOutcome</td>
-                            <td>Integer</td>
-                            <td>If the establishment went to court what the outcome was</td>
-                        </tr>
-                        <tr>
-                            <td>amountFined</td>
-                            <td>Integer</td>
-                            <td>Amount the establishment has to pay if they were fined</td>
-                        </tr>
                     </tbody>
                 </table>
-                <br />
-                <h4>QUERY PREDICATES</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Predicate</th>
-                            <th>Example</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>EQUALS</td>
-                            <td>:</td>
-                            <td>https://api-dinesafe.herokuapp.com/establishment/search?query=establishmentId:1222579</td>
-                        </tr>
-                        <tr>
-                            <td>GREATER THAN</td>
-                            <td>&#62;</td>
-                            <td>https://api-dinesafe.herokuapp.com/establishment/search?query=amountFined&#62;0</td>
-
-                        </tr>
-                        <tr>
-                            <td>LESS THAN</td>
-                            <td>&#60;</td>
-                            <td>https://api-dinesafe.herokuapp.com/establishment/search?query=minimumInspections&#60;2</td>
-
-                        </tr>
-                    </tbody>
-                </table>
-
             </div>
-                <div class="overflow-hidden content-section" id="types-of-establishments">
-                    <h2 id="types-of-establishments">Types of Establishments</h2>
-
-                <ul>
-                    <li>Food Take Out </li>
-                    <li>Restaurant </li>
-                    <li>Cafeteria </li>
-                    <li>Commissary </li>
-                    <li>Private Club </li>
-                    <li>Child Care - Catered </li>
-                    <li>Food Store (Convenience / Variety) </li>
-                    <li>Child Care - Food Preparation </li>
-                    <li>Food Depot </li>
-                    <li>Food Court Vendor </li>
-                    <li>Serving Kitchen </li>
-                    <li>Banquet Facility </li>
-                    <li>Butcher Shop </li>
-                    <li>Food Processing Plant </li>
-                    <li>Bakery </li>
-                    <li>Supermarket </li>
-                    <li>Other Educational Facility Food Services </li>
-                    <li>Cafeteria - Public Access </li>
-                    <li>Nursing Home / Home for the Aged </li>
-                    <li>Ice Cream / Yogurt Vendors </li>
-                    <li>Retirement Homes(Licensed) </li>
-                    <li>Institutional Food Service </li>
-                    <li>Secondary School Food Services </li>
-                    <li>Fish Shop </li>
-                    <li>School Nourishment Program </li>
-                    <li>Food Caterer </li>
-                    <li>Cocktail Bar / Beverage Room </li>
-                    <li>Bake Shop </li>
-                    <li>Boarding / Lodging Home - Kitchen </li>
-                    <li>Flea Market </li>
-                    <li>College/University Food services </li>
-                    <li>Hospitals &amp; Health Facilities </li>
-                    <li>Refreshment Stand (Stationary) </li>
-                    <li>Meat Processing Plant </li>
-                    <li>Community Kitchen Meal Program </li>
-                    <li>Church Banquet Facility </li>
-                    <li>Elementary School Food services </li>
-                    <li>Chartered Cruise Boats </li>
-                    <li>Food Bank </li>
-                    <li>Mobile Food Preparation Premises </li>
-                    <li>Hot Dog Cart </li>
-                    <li>Food Vending Facility </li>
-                    <li>Locker Plant </li>
-                    <li>Retirement Homes(Un-licensed) </li>
-                    <li>Bed &amp; Breakfast </li>
-                    <li>Milk Pasteurization Plant </li>
-                    <li>Cheese Plant </li>
-                    <li>Rest Home </li>
-                    <li>Food Cart </li>
-                    <li>Brew Your Own Beer / Wine </li>
-                    <li>Catering Vehicle </li>
-                    <li>Fairs / Festivals / Special Occasions </li>
-                    <li>Bottling Plant </li>
-                    <li>Food Recovery Program </li>
-                    <li>Ice Cream Plant </li>
-                    <li>Cannery </li>
-                </ul>
-            </div>
-
+           
         </div>
     </div>
     <!-- Github Corner Ribbon - to remove (Ribbon created with : http://tholman.com/github-corners/ )-->
